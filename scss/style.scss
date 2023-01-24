@@ -1,6 +1,7 @@
 @use './index' as *;
 
 body {
-  background-color: $tomato;
-  border: 10px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
