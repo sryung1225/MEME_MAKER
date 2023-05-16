@@ -16,6 +16,7 @@ const CANVAS_SIZE = 800;
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 ctx.lineWidth = lineWidth.value;
+let canvasFilledColor = "white";
 let isPainting = false;
 let isFilling = false;
 
@@ -49,6 +50,7 @@ function onModeClick() {
 function onCanvasClick() {
   if (isFilling) {
     ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+    canvasFilledColor = ctx.fillStyle;
   }
 }
 function onColorChange(e) {
@@ -65,9 +67,10 @@ function onColorClick(e) {
 function onDestroyClick() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
+  canvasFilledColor = ctx.fillStyle;
 }
 function onEraserClick() {
-  ctx.strokeStyle = "white";
+  ctx.strokeStyle = canvasFilledColor;
   isFilling = false;
   modeBtn.innerText = "Fill";
 }
