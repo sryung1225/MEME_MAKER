@@ -18,6 +18,7 @@ const CANVAS_SIZE = 800;
 canvas.width = CANVAS_SIZE;
 canvas.height = CANVAS_SIZE;
 ctx.lineWidth = lineWidth.value;
+ctx.lineCap = "round";
 let canvasFilledColor = "white";
 let isPainting = false;
 let isFilling = false;
