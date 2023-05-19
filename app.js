@@ -1,5 +1,6 @@
 import { rgbToHex } from "./lib/index.js";
 
+const textInput = document.getElementById("text");
 const fileInput = document.getElementById("file");
 const modeBtn = document.getElementById("mode-btn");
 const destroyBtn = document.getElementById("destroy-btn");
@@ -85,12 +86,23 @@ function onFileChange(e) {
     fileInput.value = null;
   };
 }
+function onDoubleClick(e) {
+  const text = textInput.value;
+  if (text !== "") {
+    ctx.save();
+    ctx.lineWidth = 1;
+    ctx.font = "68px serif";
+    ctx.fillText(text, e.offsetX, e.offsetY);
+    ctx.restore();
+  }
+}
 
 canvas.addEventListener("mousemove", painting);
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
 canvas.addEventListener("click", onCanvasClick);
+canvas.addEventListener("dblclick", onDoubleClick);
 lineWidth.addEventListener("change", onLineWidthChange);
 modeBtn.addEventListener("click", onModeClick);
 color.addEventListener("change", onColorChange);
