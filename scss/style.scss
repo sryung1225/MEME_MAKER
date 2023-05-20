@@ -1,8 +1,2 @@
-@use "./index" as *;
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+@use "./common/index" as *;
+@use "./includes/index" as *;

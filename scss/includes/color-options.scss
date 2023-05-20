@@ -1,0 +1,50 @@
+@use "sass:list";
+
+.color {
+  &-pick {
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  &-pallette {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 200px;
+  }
+  &-option,
+  &-picker {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform ease-in-out 0.1s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  &-picker {
+    position: absolute;
+    left: -2px;
+    background-color: #000;
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(28, 139, 243, 0.986),
+      0 1px 3px rgba(28, 139, 243, 0.986);
+  }
+  &-option {
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    $colors: #1abc9c, #3498db, #34495e, #27ae60, #8e44ad, #f1c40f, #e74c3c,
+      #95a5a6, #d35400, #bdc3c7, #2ecc71, #e67e22;
+
+    @for $i from 1 to list.length($colors) + 1 {
+      &:nth-child(#{$i}) {
+        background-color: list.nth($colors, $i);
+      }
+    }
+  }
+}

@@ -9,32 +9,47 @@
     <script defer type="module" src="app.js"></script>
   </head>
   <body>
-    <canvas></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="2" />
-    <input type="color" id="color" value="white" />
-    <div class="color-pallette">
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-      <div class="color-option"></div>
-    </div>
-    <button id="mode-btn" type="button">Fill</button>
-    <button id="destroy-btn" type="button">Destory</button>
-    <button id="eraser-btn" type="button">Erase</button>
-    <input type="file" accept="image/*" id="file" />
-    <input
-      type="text"
-      placeholder="작성 후 원하는 위치에 더블 클릭 해주세요!"
-      id="text"
-    />
-    <button id="save" type="button">이미지 저장</button>
+    <section class="meme-maker">
+      <div class="color-options">
+        <div class="color-pick">
+          <label for="color" class="color-picker"></label>
+          <input type="color" id="color" class="a11y" value="white" />
+        </div>
+        <div class="color-pallette">
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+          <div class="color-option"></div>
+        </div>
+      </div>
+      <canvas></canvas>
+      <div class="draw-options">
+        <input
+          id="line-width"
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          step="0.1"
+        />
+        <button id="mode-btn">🩸 Fill</button>
+        <button id="destroy-btn">💣 Destroy</button>
+        <button id="eraser-btn">❌ Erase</button>
+        <label for="file">
+          💅🏻 Add Photo
+          <input type="file" accept="image/*" id="file" class="a11y" />
+        </label>
+        <input type="text" id="text" placeholder="Add text here... :)" />
+        <button id="save">🖼 Save image</button>
+      </div>
+    </section>
   </body>
 </html>

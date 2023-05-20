@@ -6,7 +6,8 @@ const fileInput = document.getElementById("file");
 const modeBtn = document.getElementById("mode-btn");
 const destroyBtn = document.getElementById("destroy-btn");
 const eraserBtn = document.getElementById("eraser-btn");
-const color = document.getElementById("color");
+const colorPick = document.querySelector(".color-picker");
+const colorInput = document.getElementById("color");
 const colorOptions = Array.from(
   document.getElementsByClassName("color-option")
 );
@@ -45,10 +46,10 @@ function onLineWidthChange(e) {
 function onModeClick() {
   if (isFilling) {
     isFilling = false;
-    modeBtn.innerText = "Fill";
+    modeBtn.innerText = "🩸 Fill";
   } else {
     isFilling = true;
-    modeBtn.innerText = "Draw";
+    modeBtn.innerText = "💉 Draw";
   }
 }
 function onCanvasClick() {
@@ -60,13 +61,15 @@ function onCanvasClick() {
 function onColorChange(e) {
   ctx.strokeStyle = e.target.value;
   ctx.fillStyle = e.target.value;
+  colorPick.style.backgroundColor = e.target.value;
 }
 function onColorClick(e) {
   const colorValue = rgbToHex(getComputedStyle(e.target).backgroundColor);
   console.log(colorValue);
   ctx.strokeStyle = colorValue;
   ctx.fillStyle = colorValue;
-  color.value = colorValue;
+  colorInput.value = colorValue;
+  colorPick.style.backgroundColor = colorValue;
 }
 function onDestroyClick() {
   ctx.fillStyle = "white";
@@ -114,7 +117,7 @@ canvas.addEventListener("click", onCanvasClick);
 canvas.addEventListener("dblclick", onDoubleClick);
 lineWidth.addEventListener("change", onLineWidthChange);
 modeBtn.addEventListener("click", onModeClick);
-color.addEventListener("change", onColorChange);
+colorInput.addEventListener("change", onColorChange);
 colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 destroyBtn.addEventListener("click", onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
