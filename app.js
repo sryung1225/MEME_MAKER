@@ -79,7 +79,7 @@ function onDestroyClick() {
 function onEraserClick() {
   ctx.strokeStyle = canvasFilledColor;
   isFilling = false;
-  modeBtn.innerText = "Fill";
+  modeBtn.innerText = "🩸 Fill";
 }
 function onFileChange(e) {
   const file = e.target.files[0];
