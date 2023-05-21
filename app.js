@@ -96,7 +96,7 @@ function onDoubleClick(e) {
   if (text !== "") {
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "68px serif";
+    ctx.font = "68px Gowun Dodum";
     ctx.fillText(text, e.offsetX, e.offsetY);
     ctx.restore();
   }
